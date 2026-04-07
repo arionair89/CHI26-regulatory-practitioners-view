@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regulatory Practitioner Views on Automated Detection of Deceptive Design Patterns</title>
+  <meta name="description" content="Regulatory Practitioner Views on Automated Detection of Deceptive Design Patterns — Rossi &amp; Parkin, CHI 2026">
+
+  <!-- Google Scholar -->
+  <meta name="citation_title" content="What I'm Interested in is Something that Violates the Law: Regulatory Practitioner Views on Automated Detection of Deceptive Design Patterns">
+  <meta name="citation_author" content="Rossi, Arianna">
+  <meta name="citation_author" content="Parkin, Simon">
+  <meta name="citation_publication_date" content="2026/04">
+  <meta name="citation_conference_title" content="CHI Conference on Human Factors in Computing Systems">
+  <meta name="citation_doi" content="10.1145/3772318.3790832">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What I'm Interested in is Something that Violates the Law">
+  <meta property="og:description" content="Regulatory Practitioner Views on Automated Detection of Deceptive Design Patterns — CHI 2026">
+  <meta property="og:type" content="article">
+
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Academicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --law: #1e3a5f;
+  --hci: #b45309;
+  --tech: #0f766e;
+  --warn: #b91c1c;
+  --accent: #6d28d9;
+  --bg-alt: #f7f7f5;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #fff;
+  color: #374151;
+}
+
+/* Hero — light */
+.hero-body { padding: 3rem 1.5rem 2rem; }
+.publication-title {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #1a1a2e;
+}
+.publication-title em { font-style: italic; color: var(--tech); font-weight: 600; }
+.publication-authors { margin-top: 0.75rem; font-size: 1.05rem; }
+.publication-authors a { color: var(--law); }
+.author-block { display: inline-block; margin: 0 0.25rem; }
+.publication-venue { margin-top: 0.75rem; font-size: 0.9rem; color: #6b7280; }
+.publication-venue .venue-badge {
+  display: inline-block;
+  background: var(--law);
+  color: #fff;
+  padding: 0.2em 0.8em;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+.publication-links {
+  margin-top: 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.publication-links .button { font-weight: 600; font-size: 0.9rem; }
+
+/* Section styling */
+.section-heading {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+}
+.section-subheading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #374151;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.content-paragraph {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #374151;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.content-paragraph a { color: var(--law); text-decoration: underline; text-underline-offset: 2px; }
+
+/* RQ Cards */
+.rq-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-top: 3px solid var(--law);
+  border-radius: 8px;
+  padding: 1.25rem;
+  height: 100%;
+}
+.rq-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--law);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.rq-card p { font-size: 0.95rem; color: #374151; }
+
+/* Pipeline steps */
+.pipeline-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  transition: box-shadow 0.2s;
+}
+.pipeline-step:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.step-num {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.step-num.sn-law { background: var(--law); }
+.step-num.sn-tech { background: var(--tech); }
+.step-num.sn-hci { background: var(--hci); }
+.step-num.sn-warn { background: var(--warn); }
+.step-num.sn-accent { background: var(--accent); }
+.pipeline-step h4 { font-size: 0.95rem; font-weight: 700; color: #1f2937; margin-bottom: 0.15rem; }
+.pipeline-step p { font-size: 0.85rem; color: #374151; margin: 0; }
+.pipeline-step .step-quote {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #374151;
+  border-left: 2px solid #d1d5db;
+  padding-left: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Callout */
+.callout-box {
+  border-left: 4px solid;
+  padding: 1rem 1.25rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem auto;
+  max-width: 800px;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.7;
+}
+.content-paragraph strong,
+.pipeline-step strong,
+.pipeline-step p strong,
+.rec-card p strong,
+.feature-card p strong,
+.callout-box strong,
+.rq-card strong {
+  color: #111827;
+}
+.cb-law { border-color: var(--law); background: #eef3f8; }
+.cb-tech { border-color: var(--tech); background: #ecfdf5; }
+.cb-hci { border-color: var(--hci); background: #fef7ed; }
+.cb-warn { border-color: var(--warn); background: #fef2f2; }
+.cb-gray { border-color: #9ca3af; background: #f9fafb; }
+.cb-accent { border-color: var(--accent); background: #f5f3ff; }
+
+/* Feature cards */
+.feature-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.25rem;
+  height: 100%;
+  transition: box-shadow 0.2s;
+}
+.feature-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+.feature-card h4 { font-size: 1rem; font-weight: 700; color: #1f2937; margin-bottom: 0.35rem; }
+.feature-card p { font-size: 0.9rem; color: #374151; }
+.feature-card .card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+/* Comparison table */
+.gap-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+}
+.gap-table th {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 2px solid #d1d5db;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #4b5563;
+}
+.gap-table td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: top;
+}
+.gap-table tr:hover td { background: #f9fafb; }
+.gap-table td strong { color: #111827; }
+
+/* Participant badges */
+.part-badge {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.pb-dp { background: #eef3f8; color: var(--law); }
+.pb-cp { background: #ecfdf5; color: var(--tech); }
+.pb-ngo { background: #fef7ed; color: var(--hci); }
+.pb-buz { background: #f5f3ff; color: var(--accent); }
+.pb-pm { background: #fef2f2; color: var(--warn); }
+
+/* Recommendation cards */
+.rec-card {
+  padding: 1.25rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.rec-card .rec-num {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.rec-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+.rec-card p { font-size: 0.9rem; color: #374151; line-height: 1.65; }
+
+/* Blockquote */
+.paper-quote {
+  border-left: 3px solid #d1d5db;
+  padding: 0.75rem 1rem;
+  margin: 1rem auto;
+  max-width: 700px;
+  background: #f9fafb;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #374151;
+}
+.paper-quote cite {
+  display: block;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #9ca3af;
+  margin-top: 0.4rem;
+}
+
+/* BibTeX */
+.bibtex-section { background: var(--bg-alt); }
+.bibtex-block {
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 1.25rem;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #e5e7eb;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+.copy-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* Stat highlights */
+.stat-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+.stat-card .stat-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+.stat-card .stat-desc { font-size: 0.75rem; color: #4b5563; margin-top: 0.3rem; }
+
+/* Separator */
+.section-sep { border: none; border-top: 1px solid #e5e7eb; margin: 0; }
+
+/* Footer */
+.footer-text { font-size: 0.8rem; color: #9ca3af; }
+.footer-text a { color: #9ca3af; }
+
+/* Scroll-to-top */
+.scroll-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--law);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 90;
+  transition: opacity 0.3s;
+}
+.scroll-to-top.visible { display: flex; }
+
+/* Keyword highlight in discussion */
+.kw {
+  background: #fef3c7;
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  font-weight: 600;
+  color: #92400e;
+}
+.kw-law {
+  background: #eef3f8;
+  color: var(--law);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.kw-tech {
+  background: #ecfdf5;
+  color: var(--tech);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.kw-warn {
+  background: #fef2f2;
+  color: var(--warn);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.kw-accent {
+  background: #f5f3ff;
+  color: var(--accent);
+  padding: 0.05em 0.35em;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.kw strong, .kw-law strong, .kw-tech strong, .kw-warn strong, .kw-accent strong {
+  color: inherit;
+  font-weight: 800;
+}
+</style>
+</head>
+<body>
+
+<!-- Scroll-to-top -->
+<button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Scroll to top" aria-label="Scroll to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+
+      <h1 class="publication-title">
+        <em>&ldquo;What I&rsquo;m Interested in is Something that Violates the Law&rdquo;</em><br>
+        Regulatory Practitioner Views on Automated Detection of Deceptive Design Patterns
+      </h1>
+
+      <div class="publication-authors">
+        <span class="author-block"><a href="https://orcid.org/0000-0002-4199-5898" target="_blank">Arianna Rossi</a><sup>1</sup>,</span>
+        <span class="author-block"><a href="https://orcid.org/0000-0002-6667-0440" target="_blank">Simon Parkin</a><sup>2</sup></span>
+      </div>
+      <div class="publication-venue">
+        <sup>1</sup> LIDER-Lab, DIRPOLIS, Sant&rsquo;Anna School of Advanced Studies, Pisa &nbsp;&middot;&nbsp;
+        <sup>2</sup> TU Delft<br>
+        <span class="venue-badge" style="margin-top:0.5rem">CHI Conference on Human Factors in Computing Systems &rsquo;26 &mdash; Barcelona</span>
+      </div>
+
+      <div class="publication-links">
+        <a class="button is-rounded is-small" style="background:#fff;border:1.5px solid var(--law);color:var(--law);font-weight:700" href="https://doi.org/10.1145/3772318.3790832" target="_blank">
+          <span class="icon"><i class="ai ai-acmdl"></i></span><span>Paper</span>
+        </a>
+        <a class="button is-rounded is-small" style="background:#fff;border:1.5px solid var(--law);color:var(--law);font-weight:700" href="https://doi.org/10.1145/3772318.3790832" target="_blank">
+          <span class="icon"><i class="ai ai-doi"></i></span><span>DOI</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ MOTIVATION & RESEARCH QUESTIONS ═══════ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">Motivation</h2>
+    <p class="content-paragraph has-text-justified" style="margin-bottom:1rem">
+      Despite growing regulatory oversight (<a href="https://www.oecd.org/en/publications/dark-commercial-patterns_44f5e846-en.html" target="_blank">OECD, 2022</a>; <a href="https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2022/guidelines-032022-deceptive-design-patterns_en" target="_blank">EDPB, 2023</a>), enforcement of deceptive design patterns (DPs) races to keep up with their scale online. Academia has invested significant research capital in automated detection tools &mdash; from crawlers to LLM-based classifiers &mdash; many of which claim utility for regulators without direct validation. <strong>This study examines whether the capacity and capabilities of regulatory practice can match the implied capacity of such tooling.</strong> We critically examine the disconnect between approaches that frame DP detection as a <em>pattern-matching problem</em> and regulatory practice, which demands <em>legal reasoning</em> and <em>contextual sensitivity</em>.
+    </p>
+
+    <h3 class="section-subheading has-text-centered">Key Results</h3>
+    <div class="columns is-centered" style="margin-top:0.75rem;margin-bottom:1.5rem">
+      <div class="column is-10">
+        <div class="pipeline-step">
+          <div class="step-num sn-law">1</div>
+          <div>
+            <p>Enforcement needs <strong>solid evidence of non-compliance against legal provisions</strong> &mdash; not research-centred catalogues of DPs.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-tech">2</div>
+          <div>
+            <p>Regulators <strong>choose which comparatively few cases they pursue</strong> from across the whole internet: a bottleneck that existing tools need to account for.</p>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-hci">3</div>
+          <div>
+            <p><strong>The entire process</strong> of gathering and analysing information for enforcement purposes <strong>must be traceable and auditable</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-subheading has-text-centered">Existing Academic Tools</h3>
+    <div class="columns is-centered" style="margin-top:0.75rem">
+      <div class="column is-4">
+        <div class="feature-card">
+          <div class="card-icon">&#x1F50D;</div>
+          <h4>Crawlers &amp; Rule-Based</h4>
+          <p>Large-scale web scraping with fixed rules. Pioneered by <a href="https://doi.org/10.1145/3274371" target="_blank">Mathur et al. (2019)</a> and <a href="https://doi.org/10.1145/3313831.3376321" target="_blank">Nouwens et al. (2020)</a>. Focus on e-commerce and cookies.</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="feature-card">
+          <div class="card-icon">&#x1F916;</div>
+          <h4>ML Pipelines</h4>
+          <p>Computer vision + NLP classifiers that recognize DPs on annotated datasets of GUI screenshots, such as AidUI (<a href="https://doi.org/10.1145/3544548.3581286" target="_blank">Mansur et al., 2023</a>) and UIGuard (<a href="https://doi.org/10.1145/3544548.3581439" target="_blank">Chen et al., 2023</a>).</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="feature-card">
+          <div class="card-icon">&#x2728;</div>
+          <h4>LLM-Based</h4>
+          <p>Multimodal flexibility beyond GUIs alone. Use proprietary models as baseline, such as DeceptiLens (<a href="https://doi.org/10.1145/3706598.3713654" target="_blank">Bäumler et al., 2025</a>) and DPGuard (<a href="https://doi.org/10.1145/3706598.3714070" target="_blank">Shi et al., 2025</a>).</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-subheading has-text-centered" style="margin-top:2.5rem">Research Questions</h3>
+    <div class="columns is-centered" style="margin-top:0.75rem">
+      <div class="column is-4"><div class="rq-card" style="background:#eef3f8"><div class="rq-tag">RQ 1</div><p>In which activities do practitioners of the regulatory sphere employ computing technology?</p></div></div>
+      <div class="column is-4"><div class="rq-card" style="background:#ecfdf5"><div class="rq-tag" style="color:var(--tech)">RQ 2</div><p>What requirements must computing technologies have to be used in their work?</p></div></div>
+      <div class="column is-4"><div class="rq-card" style="background:#fef7ed"><div class="rq-tag" style="color:var(--hci)">RQ 3</div><p>In which enforcement activities are AI-based tools developed by academia most useful, and what requirements do they embed?</p></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ METHODOLOGY ═══════ -->
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">Methodology</h2>
+    <p class="content-paragraph has-text-justified" style="margin-bottom:1.5rem">
+      We interviewed nine practitioners across EU regulatory, policy-making, business, and civil society organizations involved in DP detection and <a href="https://doi.org/10.1007/978-981-97-3076-6_12" target="_blank">EnfTech</a> deployment (Jan&ndash;Apr 2025, 45&ndash;60 min each). Transcripts were analysed via codebook-style Thematic Analysis (<a href="https://doi.org/10.4135/9781526421036" target="_blank">Braun &amp; Clarke, 2021</a>) by two independent coders.
+    </p>
+
+    <div class="columns is-centered" style="margin-bottom:1.5rem">
+      <div class="column is-2-desktop is-6-mobile"><div class="stat-card"><div class="stat-num" style="color:var(--law)">9</div><div class="stat-desc">Practitioners</div></div></div>
+      <div class="column is-2-desktop is-6-mobile"><div class="stat-card"><div class="stat-num" style="color:var(--hci)">5</div><div class="stat-desc">Organization types</div></div></div>
+      <div class="column is-2-desktop is-6-mobile"><div class="stat-card"><div class="stat-num" style="color:var(--tech)">45–60</div><div class="stat-desc">Min. per interview</div></div></div>
+      <div class="column is-2-desktop is-6-mobile"><div class="stat-card"><div class="stat-num" style="color:var(--accent)">2</div><div class="stat-desc">Independent coders</div></div></div>
+      <div class="column is-2-desktop is-6-mobile"><div class="stat-card"><div class="stat-num" style="color:var(--warn)">Jan–Apr</div><div class="stat-desc">2025</div></div></div>
+    </div>
+
+    <h3 class="section-subheading has-text-centered">Participants</h3>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div style="overflow-x:auto">
+        <table class="gap-table">
+          <thead><tr><th>Organization</th><th>Code</th><th>Expertise</th></tr></thead>
+          <tbody>
+            <tr><td><span class="part-badge pb-buz">Business</span></td><td>BUZ-P1</td><td>Law &amp; Tooling</td></tr>
+            <tr><td><span class="part-badge pb-pm">Policy-making</span></td><td>PM-P2</td><td>Law</td></tr>
+            <tr><td><span class="part-badge pb-ngo">NGO</span></td><td>NGO-P3</td><td>Tooling</td></tr>
+            <tr><td><span class="part-badge pb-cp">Consumer Protection</span></td><td>CP-P4</td><td>Law</td></tr>
+            <tr><td><span class="part-badge pb-cp">Consumer Protection</span></td><td>CP-P8</td><td>Law</td></tr>
+            <tr><td><span class="part-badge pb-cp">Consumer Protection</span></td><td>CP-P9</td><td>Tooling</td></tr>
+            <tr><td><span class="part-badge pb-dp">Data Protection</span></td><td>DP-P5</td><td>Tooling &amp; Law</td></tr>
+            <tr><td><span class="part-badge pb-dp">Data Protection</span></td><td>DP-P6</td><td>Tooling</td></tr>
+            <tr><td><span class="part-badge pb-dp">Data Protection</span></td><td>DP-P7</td><td>Law</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ RQ1: ENFORCEMENT PIPELINE ═══════ -->
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">RQ1: The Enforcement Pipeline</h2>
+    <p class="content-paragraph has-text-justified" style="margin-bottom:1.5rem">
+      Detection and enforcement involve multiple, non-mandatory phases. Practitioners use tools to automate tasks beyond detection (e.g., contacting businesses, issuing reports), while some steps require human input (e.g., legal assessment, filing complaints).
+    </p>
+
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div class="pipeline-step">
+          <div class="step-num sn-law">1</div>
+          <div>
+            <h4>Preventative Action</h4>
+            <p>Official guidelines, self-assessment tools, consultancy services to help businesses adhere to regulations upfront.</p>
+            <div class="step-quote">&ldquo;Avoid change management&rdquo; &mdash; BUZ-P1</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-tech">2</div>
+          <div>
+            <h4>Sweep Collection</h4>
+            <p>Large-scale sweeps of GUI-visible practices, manual or automated. Can involve scraping thousands of websites.</p>
+            <div class="step-quote">&ldquo;We wanted to know if the suspicion could be proven&rdquo; &mdash; CP-P9</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-tech">3</div>
+          <div>
+            <h4>Screening</h4>
+            <p>Data analysis guided by priorities, complaints, media attention, or company size. Accuracy is secondary &mdash; tools provide indicators of possible violations.</p>
+            <div class="step-quote">&ldquo;We cannot fine 30,000 businesses even in 100 years&rdquo; &mdash; CP-P4</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-hci">4</div>
+          <div>
+            <h4>Further Information Gathering</h4>
+            <p>Data beyond what is collected online: verifying stock messages, identifying service owners, conducting audits.</p>
+            <div class="step-quote">&ldquo;Investigative software can only be used as a hunch&rdquo; &mdash; PM-P2</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-law">5</div>
+          <div>
+            <h4>Establish Violations</h4>
+            <p>Matching dark patterns to legal violations. Complex and <strong>always requires human validation</strong>.</p>
+            <div class="step-quote">&ldquo;Even the mentioning of a dark pattern doesn&rsquo;t mean anything to me. In the end, what I&rsquo;m interested in is something that violates the law&rdquo; &mdash; CP-P4</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-warn">6</div>
+          <div>
+            <h4>Take Action</h4>
+            <p>Complaints, fines, or remediation opportunities. Smaller businesses often get a chance to redress first.</p>
+            <div class="step-quote">&ldquo;We communicate to traders and give them an opportunity to change&rdquo; &mdash; CP-P4</div>
+          </div>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-num sn-accent">7</div>
+          <div>
+            <h4>Check Change Implementation</h4>
+            <p>Post-enforcement monitoring to verify changes and detect reappearance of dark patterns over time.</p>
+            <div class="step-quote">&ldquo;Maybe in one year they put back what they had before&rdquo; &mdash; NGO-P3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ RQ2: REQUIREMENTS ═══════ -->
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">RQ2: Requirements for Technology Adoption</h2>
+    <p class="content-paragraph has-text-centered" style="margin-bottom:1.5rem">
+      Requirements most prominently mentioned by the interviewees to enable technology adoption:
+    </p>
+
+    <div class="columns is-centered is-multiline">
+      <div class="column is-3"><div class="feature-card"><h4>&#x1F50D; Trustworthiness</h4><p>Transparency, reliability, verifiability, traceability. Data must withstand judicial scrutiny.</p></div></div>
+      <div class="column is-3"><div class="feature-card"><h4>&#x1F9D1;‍&#x2696;&#xFE0F; Human Oversight</h4><p>Non-negotiable. No participant believed legal processes could rely solely on automated tools.</p></div></div>
+      <div class="column is-3"><div class="feature-card"><h4>&#x1F4B0; Cost &amp; Capacity</h4><p>Technologies help do more with less, but data overload without filtering hampers rather than helps.</p></div></div>
+      <div class="column is-3"><div class="feature-card"><h4>&#x1F513; Open Source</h4><p>Essential for transparency, reproducibility, sharing across authorities, and cutting procurement burdens.</p></div></div>
+    </div>
+    <div class="columns is-centered is-multiline" style="margin-top:0.25rem">
+      <div class="column is-6"><div class="feature-card"><h4>&#x1F510; Confidentiality</h4><p>Enforcement data must remain protected during and after investigations. Tools using third-party APIs (especially proprietary LLMs) raise serious concerns about data leakage and chain-of-custody integrity.</p></div></div>
+      <div class="column is-6"><div class="feature-card"><h4>&#x23F1;&#xFE0F; Timeliness &amp; Traceability</h4><p>Tools must produce timestamped evidence showing when data was collected, from which source, and under what conditions &mdash; essential for admissibility in legal proceedings.</p></div></div>
+    </div>
+
+    <div class="paper-quote">
+      &ldquo;It&rsquo;s very hard for us to take machine learning models and LLM output at face value.&rdquo;
+      <cite>DP-P6</cite>
+    </div>
+
+    <h3 class="section-subheading has-text-centered">Additional Insights</h3>
+    <div class="columns is-centered is-multiline">
+      <div class="column is-4"><div class="feature-card"><h4>&#x1F4A1; Tools as Inspiration</h4><p>Detection tools inspire in-house development but are rarely expected in legal procedures directly.</p></div></div>
+      <div class="column is-4"><div class="feature-card"><h4>&#x1F3AF; Campaigns, Not Coverage</h4><p>Investigations target specific DP families matching clear legal violations. Broad-coverage tools were considered too general.</p></div></div>
+      <div class="column is-4"><div class="feature-card"><h4>&#x1F4CA; Scaling Diligence</h4><p>AI-tools seen as scaling up to match DP prevalence &mdash; not augmenting regulator skills. Repetitive tasks are the sweet spot.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ RQ3: GAP ANALYSIS ═══════ -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">RQ3: Where Do Tools Fit in the Pipeline?</h2>
+    <p class="content-paragraph has-text-centered" style="margin-bottom:1.5rem">
+      All analysed tools are useful for Sweep Collection (Step 2). Only cookie-banner-focused tools (<a href="https://doi.org/10.1145/3313831.3376321" target="_blank">Nouwens et al., 2020</a>; <a href="https://doi.org/10.1145/3544548.3581287" target="_blank">Kirkman &amp; Vines, 2023</a>; <a href="https://doi.org/10.56553/popets-2023-0088" target="_blank">Bouhoula et al., 2023</a>) support Screening and Establishing Violations.
+    </p>
+
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div style="overflow-x:auto">
+        <table class="gap-table">
+          <thead><tr><th>Dimension</th><th>Enforcement Needs</th><th>Most Tools Provide</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Pipeline coverage</strong></td><td>All 7 steps, especially Step 5</td><td>Mostly Steps 2&ndash;3</td></tr>
+            <tr><td><strong>Data type</strong></td><td>Timestamped evidence, legal mappings, backend data</td><td>GUI screenshots, cookie content (rarely timestamped)</td></tr>
+            <tr><td><strong>Legal grounding</strong></td><td>Mapping to legal provisions &amp; case law</td><td>DP taxonomies (academic, not legal)</td></tr>
+            <tr><td><strong>Trustworthiness</strong></td><td>Auditable, explainable, reproducible</td><td>Only a few explicitly address human oversight and accuracy</td></tr>
+            <tr><td><strong>Open source</strong></td><td>Full transparency, interoperability across authorities</td><td>Scientific reproducibility (code on GitHub), but often missing licenses</td></tr>
+            <tr><td><strong>Confidentiality</strong></td><td>Closed environments, no data leakage</td><td>LLM tools use proprietary models with external API calls</td></tr>
+            <tr><td><strong>Scope</strong></td><td>Specific campaigns &amp; targeted violations</td><td>Broad coverage across DP categories</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box cb-warn">
+      <strong>The fundamental mismatch.</strong> Academic tools treat enforcement as a pattern-matching problem. But regulators need a <em><strong>plausible legal narrative</strong></em> connecting design choices to specific legal violations, supported by <strong>evidence that can survive judicial scrutiny</strong>. Detection is only the beginning of a long, resource-constrained process.
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ DISCUSSION / RECOMMENDATIONS ═══════ -->
+<section class="section" style="background:var(--bg-alt)">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">Discussion &amp; Recommendations</h2>
+    <p class="content-paragraph has-text-justified" style="margin-bottom:0.75rem">
+      The results show that academic tools and enforcement practice operate under <span class="kw">fundamentally different logics</span>. Where researchers optimize for <span class="kw-tech">detection coverage</span> and <span class="kw-tech">classification accuracy</span>, regulators need <span class="kw-law">legally grounded evidence</span> that connects interface designs to <span class="kw-law">specific legal violations</span>. This mismatch is not merely technical: it reflects a deeper disconnect in <span class="kw">how the problem is framed</span>. Below, we offer five actionable directions to align supply and demand.
+    </p>
+    <p style="font-size:0.8rem;color:#6b7280;text-align:center;margin-bottom:1.5rem">
+      <span class="kw-law" style="font-size:0.75rem">Law &amp; regulation</span>&ensp;
+      <span class="kw-tech" style="font-size:0.75rem">Technology &amp; tools</span>&ensp;
+      <span class="kw-warn" style="font-size:0.75rem">Constraints</span>&ensp;
+      <span class="kw-accent" style="font-size:0.75rem">Policy &amp; governance</span>&ensp;
+      <span class="kw" style="font-size:0.75rem">Cross-cutting</span>
+    </p>
+
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div class="rec-card">
+          <div class="rec-num" style="background:var(--law)">R1</div>
+          <div>
+            <h4>Map Case Law to DPs &amp; Co-Design Legal Technologies</h4>
+            <p>The primary goal of regulators is justifying <em>why</em> a design pattern is a possible <span class="kw-law">legal violation</span>, not merely finding DPs. This requires <span class="kw-law"><strong>jurisdiction-specific mappings</strong> of known violations to known dark patterns</span>, building on work by <a href="https://doi.org/10.2139/ssrn.4573643" target="_blank">Leiser &amp; Santos (2023)</a> and <a href="https://www.deceptive.design/" target="_blank">Brignull (2023)</a>. Outputs should be computable and interoperable via <span class="kw-tech">formal legal ontologies</span> (<a href="https://doi.org/10.3233/SW-190378" target="_blank">Pandit et al., 2019</a>; <a href="https://doi.org/10.1007/978-3-030-00178-0_10" target="_blank">Palmirani et al., 2018</a>), and leverage LLMs fine-tuned for <span class="kw-law">legal reasoning</span> rather than general-purpose models. The DP community &mdash; which has already combined HCI and law effectively (<a href="https://doi.org/10.1145/3613904.3642187" target="_blank">Gray et al., 2024</a>; <a href="https://doi.org/10.1145/3544548.3580810" target="_blank">Santos &amp; Rossi, 2023</a>) &mdash; now needs to involve computer scientists expert in <span class="kw-tech">legal knowledge representation</span>.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num" style="background:var(--hci)">R2</div>
+          <div>
+            <h4>Identify Enforcement Actors &amp; Engage Early</h4>
+            <p>Researchers must identify <span class="kw">relevant stakeholders</span> and model their diverse needs into <span class="kw">user requirements</span>. Tool functionalities must align with <span class="kw-warn">operational constraints</span> &mdash; particularly institutional cost capacity and the slow complexities of rigid <span class="kw-warn">procurement procedures</span>. Research tools often claim utility for regulators, but their actual use is constrained because they do not align with <span class="kw-law">evidentiary needs</span> and investigatory methods &mdash; a limitation also recently noted by <a href="https://doi.org/10.1145/3706598.3713287" target="_blank">Gunawan et al. (2025)</a>. The <strong>heterogeneity of institutional capacities</strong> must be considered: some agencies develop tools <span class="kw-tech">in-house</span>, while others rely on legal experts with limited technical literacy. The EU AI Act&rsquo;s Article 4 mandates <span class="kw-accent">AI literacy</span>, creating opportunities for HCI researchers and digital educators.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num" style="background:var(--tech)">R3</div>
+          <div>
+            <h4>Design Beyond Detection</h4>
+            <p>There are many enforcement tasks where <strong>academia can contribute beyond DP detection</strong>: <span class="kw-tech">web crawlers</span> for <span class="kw-law">timestamped evidence</span> collection, systems for organizing and prioritizing evidence, <span class="kw-tech">monitoring changes</span> over time, and helping manage complaints. Research on automated detection of complex legal language and misleading statements can also support enforcement, even if not explicitly framed as DP-related (e.g., <a href="https://doi.org/10.1016/j.artint.2019.103125" target="_blank">Lippi et al., 2019</a>). <span class="kw-warn"><strong>Backend detection</strong> capabilities need expansion</span> as businesses may shift deceptions to invisible data flows &mdash; what <a href="https://doi.org/10.2139/ssrn.4573643" target="_blank">Leiser &amp; Santos (2023)</a> call <em>&ldquo;Darkest Dark Patterns,&rdquo;</em> which enforcement agencies struggle with more than interface-level analysis.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num" style="background:var(--accent)">R4</div>
+          <div>
+            <h4>Establish Tech Adoption Pathways &amp; Shared Spaces</h4>
+            <p>What is lacking are <span class="kw-accent">shared spaces</span> where different stakeholders can carry out <strong>common experimentation</strong>, and practical pathways to <strong>streamline the adoption</strong> of existing technology. This includes <span class="kw-tech">co-design processes</span>, <span class="kw-accent">regulatory sandboxes</span>, and open-source tools with appropriate licenses. <span class="kw-tech"><strong>Open-core licensing</strong></span> models &mdash; combining open source with proprietary features for specific clients &mdash; can bridge the incentive gap between academic openness and regulatory confidentiality.</p>
+          </div>
+        </div>
+        <div class="rec-card">
+          <div class="rec-num" style="background:var(--warn)">R5</div>
+          <div>
+            <h4>Balance Transparency with Confidentiality</h4>
+            <p>The utmost need for <span class="kw-warn">confidentiality</span> must be carefully balanced with the <span class="kw-accent">openness of scientific research</span>. Concrete strategies include <span class="kw-accent">tiered access models</span>, <span class="kw-tech">synthetic DP data</span> for shared benchmarking, and publishing methodologies while protecting sensitive datasets. Opaque AI systems can only serve <span class="kw">inspirational or exploratory</span> functions in enforcement &mdash; never as direct evidence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-box cb-tech">
+      <strong>The incentive challenge.</strong> Tools that are needed in enforcement may attract fewer <span class="kw">academic citations</span> than trending topics. However, research assessment increasingly recognizes diverse forms of contribution (<a href="https://coara.eu/agreement/the-agreement-full-text" target="_blank">CoARA, 2022</a>). <strong>We call for mechanisms that <span class="kw">align incentives</span></strong> &mdash; from tailored funding instruments for joint academia-regulation objectives to R&amp;D opportunities based on <span class="kw-tech"><strong>open-core licensing</strong></span>, and participation in <span class="kw-accent">public venues</span> for intersectoral dialogue. All these activities would contribute to achieving <span class="kw">digital fairness</span> and augmenting the <span class="kw">societal impact</span> of scientific research.
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep">
+
+<!-- ═══════ BIBTEX ═══════ -->
+<section class="section bibtex-section">
+  <div class="container">
+    <h2 class="section-heading has-text-centered">BibTeX</h2>
+    <div class="bibtex-block">
+      <button class="copy-btn" onclick="copyBib()"><i class="fas fa-copy"></i> Copy</button>
+<pre style="margin:0;white-space:pre-wrap;">@inproceedings{Rossi_Parkin_2026,
+  author    = {Rossi, Arianna and Parkin, Simon},
+  title     = {``What I'm Interested in is Something that
+               Violates the Law'': Regulatory Practitioner
+               Views on Automated Detection of Deceptive
+               Design Patterns},
+  booktitle = {Proceedings of the 2026 CHI Conference on
+               Human Factors in Computing Systems (CHI '26)},
+  year      = {2026},
+  month     = {April},
+  address   = {Barcelona, Spain},
+  publisher = {ACM},
+  doi       = {10.1145/3772318.3790832},
+  isbn      = {979-8-4007-2278-3/2026/04}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="section" style="padding:2rem 1.5rem">
+  <div class="container has-text-centered footer-text">
+    <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.<br>
+    This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+  </div>
+</footer>
+
+<script>
+function copyBib(){
+  const t=document.querySelector('.bibtex-block pre').textContent;
+  navigator.clipboard.writeText(t).then(()=>{
+    const b=document.querySelector('.copy-btn');
+    b.innerHTML='<i class="fas fa-check"></i> Copied!';
+    setTimeout(()=>b.innerHTML='<i class="fas fa-copy"></i> Copy',2000);
+  });
+}
+const stb=document.querySelector('.scroll-to-top');
+window.addEventListener('scroll',()=>{
+  stb.classList.toggle('visible',window.scrollY>400);
+},{passive:true});
+</script>
+</body>
+</html>
