@@ -8,6 +8,7 @@ arXiv: https://arxiv.org/abs/2602.16302
 
 Live page: [https://github.com/arionair89/CHI26-regulatory-practitioners-view](https://arionair89.github.io/CHI26-regulatory-practitioners-view/)
 
-This page summarizes our study on the disconnect between academic automated dark pattern detection tools and regulatory enforcement practice, based on interviews with 9 EU practitioners.
+The live page summarizes our study on the disconnect between academic automated dark pattern detection tools and regulatory enforcement practice, based on interviews with 9 EU practitioners.
+It provides recommendations for researchers and regulators to enable fruitful collaboration.
 
 Built using the Academic Project Page Template available at https://github.com/eliahuhorwitz/Academic-project-page-template
